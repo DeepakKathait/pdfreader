@@ -4,8 +4,6 @@ workflows:
     environment:
       flutter: stable
       node: 16.20.0
-      android: latest
-      working_directory: .
     scripts:
       - name: Install dependencies
         script: |
