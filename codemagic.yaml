@@ -1,0 +1,21 @@
+workflows:
+  build-ionic-android:
+    name: Build Ionic Android APK
+    environment:
+      flutter: stable
+      node: 16.20.0
+      android: latest
+      working_directory: .
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+          npm install -g @ionic/cli
+      - name: Build Ionic app
+        script: |
+          ionic build
+      - name: Sync with Capacitor
+        script: |
+          npx cap sync android
+    artifacts:
+      - android/app/build/outputs//*.apk
